@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.36
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirewallManager", "FirewallManager.csproj", "{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Debug|x64.ActiveCfg = Debug|x64
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Debug|x64.Build.0 = Debug|x64
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Release|x64.ActiveCfg = Release|x64
+		{DBFBBFB6-CBF1-4B13-902A-F306D2DB54A3}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A965B81A-991C-4F97-BC91-36132D5274EB}
+	EndGlobalSection
+EndGlobal
