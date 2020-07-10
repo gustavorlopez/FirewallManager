@@ -10,7 +10,6 @@ namespace FirewallManager.data
     {
         private String Sqlconn;
         private String Servername;
-        //Constructor sin parametros
         public MyContext()
         {
         }
@@ -21,19 +20,16 @@ namespace FirewallManager.data
             Servername = server;
         }
 
-        //Constructor con parametros para la configuracion
         public MyContext(DbContextOptions options) : base(options)
         {
         }
 
-        //Sobreescribimos el metodo OnConfiguring para hacer los ajustes que queramos en caso de
-        //llamar al constructor sin parametros
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //En caso de que el contexto no este configurado, lo configuramos mediante la cadena de conexion
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(Sqlconn);
+                // uncomment this for Initial commit
                 //optionsBuilder.UseSqlServer("Data Source = (localdb)\\ProjectsV13; Initial Catalog = firewallblocker;");
             }
         }
@@ -65,8 +61,6 @@ namespace FirewallManager.data
             modelBuilder.Entity<Rule>()
                 .HasIndex(b => b.RuleName);
         }
-        //Tablas de datos
         public virtual DbSet<Rule> Rules { get; set; }
     }
 }
-

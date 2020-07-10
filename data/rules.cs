@@ -10,7 +10,7 @@ namespace FirewallManager.data
     public class Rule
     {
         [Key]
-        public int Id { get; set; } //Clave primaria
+        public int Id { get; set; } // Key
         public DateTime Created { get; set; }
         [MaxLength(50)]
         [Required]
@@ -24,6 +24,6 @@ namespace FirewallManager.data
         public Boolean Processed { get; set; }
 
         //Entity Framework Core
-        public DbSet<Rule> Rules{ get; set; } //Objeto de navegación virtual EFC
+        public DbSet<Rule> Rules{ get; set; } 
     }
 }

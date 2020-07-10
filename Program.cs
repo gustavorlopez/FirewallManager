@@ -61,9 +61,6 @@ namespace FirewallManager
             var conn   = Configuration.GetConnectionString("DataConnection");
             var server = Configuration["ServerName"];
 
-            //var whitelist = Configuration["WhiteList"];
-            //string[] whitelist = Configuration.GetSection("WhiteList").Get<string[]>();
-            // si AddMode=true y la direccion IP esta en la lista blanca, abortar
             {
               var whitelist = new List<string>();
               Configuration.GetSection("WhiteList").Bind(whitelist);
@@ -75,18 +72,18 @@ namespace FirewallManager
 
             if (conn != null && !string.IsNullOrWhiteSpace(conn))
             {
-                // ver si la direccion IP ya esta en la blacklist de la BD
+                // check if IP Address is already in black list
                 var context = new MyContext(conn, server);
                 Rule q  = context.Rules
                      .Where(s => s.Server == server && s.Ipaddr == Ipa)
                      .FirstOrDefault<Rule>();
                 if (AddMode) { 
                   if (q==null) {
-                    // obtener el ultimo ID de la BD
+                    // Get last DB inserted ID
                     int? intIdt = context.Rules.Max(s => (int?)s.Id);
                     if (intIdt == null) intIdt = 1;
                     else intIdt++;
-                    String rulename = String.Format("Auto IP Block-{0}", intIdt);
+                    String rulename = String.Format("FirewallMan Block-{0}", intIdt);
                     try
                     {
                         FirewallConf firewall = new FirewallConf();
@@ -113,9 +110,9 @@ namespace FirewallManager
                   if (q == null) throw new Exception(Ipa + " is not on the block list");
                   else  
                   {
-                        // obtener el nombre de la regla
+                        // Get rule's name
                         String rulename = q.RuleName;
-                        if (rulename.Trim().Length==0) throw new Exception(Ipa + " RuleName is empty");
+                        if (rulename.Trim().Length==0) throw new Exception(Ipa + " Rulename is empty");
                         else try
                         {
                             FirewallConf firewall = new FirewallConf();

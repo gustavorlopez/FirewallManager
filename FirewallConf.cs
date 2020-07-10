@@ -9,13 +9,13 @@ namespace FirewallManager
     {
         public int AddBlockRule (String RuleName, String RemoteAddress)
         {
-            return AddRule(RuleName, "Bloqueo atacantes RDP y SQL", RemoteAddress, "*",
+            return AddRule(RuleName, "FirewallMan Block", RemoteAddress, "*",
                     NET_FW_ACTION_.NET_FW_ACTION_BLOCK, NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_IN, 
                     NET_FW_IP_PROTOCOL_.NET_FW_IP_PROTOCOL_ANY);
         }
         public int AddRule(String name, String Description, String RemoteAdresses, String LocalPort,
                   NET_FW_ACTION_ Action, NET_FW_RULE_DIRECTION_ Direction, 
-                  NET_FW_IP_PROTOCOL_ Protocole, String ApplicationName = "FirewallManager")
+                  NET_FW_IP_PROTOCOL_ Protocole, String ApplicationName = "FirewallMan")
         {
             Type Policy2 = Type.GetTypeFromProgID("HNetCfg.FwPolicy2", false);
             INetFwPolicy2 FwPolicy = (INetFwPolicy2)Activator.CreateInstance(Policy2);
@@ -32,7 +32,7 @@ namespace FirewallManager
             rule.Action = Action;
             rule.Direction = Direction;
             rule.ApplicationName = ApplicationName;
-            rule.Grouping = "A1";
+            rule.Grouping = "FirewallManager";
             rule.Enabled = true;
             try
             { 
